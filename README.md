@@ -24,9 +24,6 @@ Both repositories were created with the same name:
 - Click **Add mirror**.
 - Enter GitHub repository URL with authentication:
 ```
-
-[https://RajAhire-1:github_pat_xxxxxxxxxx@github.com/RajAhire-1/devops-mirror-repo.git](https://RajAhire-1:github_pat_xxxxxxxxxx@github.com/RajAhire-1/devops-mirror-repo.git)
-
 ````
 - Select **Push** direction (GitLab → GitHub).
 - Click **Save changes**.
