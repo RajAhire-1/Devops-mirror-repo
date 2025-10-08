@@ -1,93 +1,160 @@
-# Devops-mirror-repo
+# DevOps Mirror Repository
 
+This project demonstrates how to mirror a GitLab repository into GitHub — automatically syncing all commits, branches, and merges between the two platforms.
 
+## Project Overview
 
-## Getting started
+This repository shows a practical example of GitLab → GitHub repository mirroring.
 
-To make it easy for you to get started with GitLab, here's a list of recommended next steps.
+Both repositories were created with the same name:
 
-Already a pro? Just edit this README.md and make it your own. Want to make it easy? [Use the template at the bottom](#editing-this-readme)!
+- GitLab Repo: [https://gitlab.com/RajAhire/devops-mirror-repo](https://gitlab.com/RajAhire/devops-mirror-repo)  
+- GitHub Repo: [https://github.com/RajAhire-1/devops-mirror-repo](https://github.com/RajAhire-1/devops-mirror-repo)
 
-## Add your files
+---
 
-- [ ] [Create](https://docs.gitlab.com/ee/user/project/repository/web_editor.html#create-a-file) or [upload](https://docs.gitlab.com/ee/user/project/repository/web_editor.html#upload-a-file) files
-- [ ] [Add files using the command line](https://docs.gitlab.com/topics/git/add_files/#add-files-to-a-git-repository) or push an existing Git repository with the following command:
+## Setup Steps
+
+### 1. Repository Creation
+- Created new repository `devops-mirror-repo` on both GitLab and GitHub.
+
+### 2. GitLab Mirror Configuration
+- Go to **Settings → Repository → Mirroring Repositories** in GitLab.
+- Click **Add mirror**.
+- Enter GitHub repository URL with authentication:
+```
+
+[https://RajAhire-1:github_pat_xxxxxxxxxx@github.com/RajAhire-1/devops-mirror-repo.git](https://RajAhire-1:github_pat_xxxxxxxxxx@github.com/RajAhire-1/devops-mirror-repo.git)
+
+````
+- Select **Push** direction (GitLab → GitHub).
+- Click **Save changes**.
+
+> This ensures every commit or branch update on GitLab automatically pushes to GitHub.
+
+**Screenshot placeholder:**  
+![](screenshots/personal_access_token.png)
+
+---
+
+### 3. GitHub Personal Access Token
+- Go to **GitHub → Settings → Developer Settings → Personal Access Tokens → Tokens (Classic)**.
+- Generate a token with `repo` and `admin:repo_hook` permissions.
+- Use this token in the GitLab mirror URL for secure authentication.
+
+---
+
+### 4. Initial Testing
+Create `index.html` in GitLab repository:
+
+```html
+<h1>Hello, this is my GitLab → GitHub mirror test!</h1>
+````
+
+Commit and push:
+
+```bash
+git add index.html
+git commit -m "Added index.html for mirror test"
+git push origin main
+```
+
+> File automatically appeared in GitHub repository — mirror verified.
+
+**Screenshot placeholder:**
+![](screenshots/sync_repo.png)
+
+---
+
+### 5. Branch & Merge Testing
+
+Create a new branch:
+
+```bash
+git checkout -b contact_us
+```
+
+Add `contact.html` and push:
+
+```bash
+git push origin contact_us
+```
+
+* Create a Merge Request on GitLab (`contact_us → main`).
+* After merging, GitLab automatically pushes changes to GitHub.
+
+> Merged branch and changes successfully mirrored.
+![](screenshots/branch_contact_us.png)
+![](screenshots/ready_to__merge.png)
+
+---
+
+## Key Learnings
+
+* GitLab repository mirroring automatically syncs commits, branches, and merges.
+* GitHub Personal Access Token ensures secure, continuous synchronization.
+* No manual `git push` commands are required after setup.
+* Merge requests and branch creations are mirrored automatically.
+* Real-time synchronization between GitLab and GitHub.
+
+---
+
+## Mirroring Workflow
 
 ```
-cd existing_repo
-git remote add origin https://gitlab.com/RajAhire/devops-mirror-repo.git
-git branch -M main
-git push -uf origin main
+GitLab (Primary Repository)
+        ↓
+Push Changes
+        ↓
+GitLab Mirror Settings
+        ↓
+GitHub (Mirror)
+        ↓
+Auto-Sync Complete
 ```
 
-## Integrate with your tools
+---
 
-- [ ] [Set up project integrations](https://gitlab.com/RajAhire/devops-mirror-repo/-/settings/integrations)
+## Technologies Used
 
-## Collaborate with your team
+* GitLab — source repository
+* GitHub — mirror repository
+* Git CLI — version control operations
+* GitLab Repository Mirroring — core mirroring functionality
+* GitHub Personal Access Tokens — secure authentication
 
-- [ ] [Invite team members and collaborators](https://docs.gitlab.com/ee/user/project/members/)
-- [ ] [Create a new merge request](https://docs.gitlab.com/ee/user/project/merge_requests/creating_merge_requests.html)
-- [ ] [Automatically close issues from merge requests](https://docs.gitlab.com/ee/user/project/issues/managing_issues.html#closing-issues-automatically)
-- [ ] [Enable merge request approvals](https://docs.gitlab.com/ee/user/project/merge_requests/approvals/)
-- [ ] [Set auto-merge](https://docs.gitlab.com/user/project/merge_requests/auto_merge/)
+---
 
-## Test and Deploy
+## Project Structure
 
-Use the built-in continuous integration in GitLab.
+```
+devops-mirror-repo/
+├── index.html          # Test file for mirror verification
+├── contact.html        # Branch merge test file
+├── README.md           # Project documentation
+└── images/             # Screenshots and diagrams
+    ├── gitlab-mirror-settings.png
+    ├── github-token.png
+    ├── successful-sync.png
+    └── branch-mirroring.png
+```
 
-- [ ] [Get started with GitLab CI/CD](https://docs.gitlab.com/ee/ci/quick_start/)
-- [ ] [Analyze your code for known vulnerabilities with Static Application Security Testing (SAST)](https://docs.gitlab.com/ee/user/application_security/sast/)
-- [ ] [Deploy to Kubernetes, Amazon EC2, or Amazon ECS using Auto Deploy](https://docs.gitlab.com/ee/topics/autodevops/requirements.html)
-- [ ] [Use pull-based deployments for improved Kubernetes management](https://docs.gitlab.com/ee/user/clusters/agent/)
-- [ ] [Set up protected environments](https://docs.gitlab.com/ee/ci/environments/protected_environments.html)
+---
 
-***
+## Quick Start Guide
 
-# Editing this README
+1. Create repositories on GitLab and GitHub.
+2. Generate GitHub Personal Access Token.
+3. Configure mirroring in GitLab project settings.
+4. Test initial commit and branch creation.
+5. Verify automatic synchronization on GitHub.
 
-When you're ready to make this README your own, just edit this file and use the handy template below (or feel free to structure it however you want - this is just a starting point!). Thanks to [makeareadme.com](https://www.makeareadme.com/) for this template.
+---
 
-## Suggestions for a good README
+## Author
 
-Every project is different, so consider which of these sections apply to yours. The sections used in the template are suggestions for most open source projects. Also keep in mind that while a README can be too long and detailed, too long is better than too short. If you think your README is too long, consider utilizing another form of documentation rather than cutting out information.
+**Raj Ahire**
+📧 [rajahire326@gmail.com](mailto:rajahire326@gmail.com)
+🌐 [GitHub](https://github.com/RajAhire-1)
+🌐 [GitLab](https://gitlab.com/RajAhire)
 
-## Name
-Choose a self-explaining name for your project.
-
-## Description
-Let people know what your project can do specifically. Provide context and add a link to any reference visitors might be unfamiliar with. A list of Features or a Background subsection can also be added here. If there are alternatives to your project, this is a good place to list differentiating factors.
-
-## Badges
-On some READMEs, you may see small images that convey metadata, such as whether or not all the tests are passing for the project. You can use Shields to add some to your README. Many services also have instructions for adding a badge.
-
-## Visuals
-Depending on what you are making, it can be a good idea to include screenshots or even a video (you'll frequently see GIFs rather than actual videos). Tools like ttygif can help, but check out Asciinema for a more sophisticated method.
-
-## Installation
-Within a particular ecosystem, there may be a common way of installing things, such as using Yarn, NuGet, or Homebrew. However, consider the possibility that whoever is reading your README is a novice and would like more guidance. Listing specific steps helps remove ambiguity and gets people to using your project as quickly as possible. If it only runs in a specific context like a particular programming language version or operating system or has dependencies that have to be installed manually, also add a Requirements subsection.
-
-## Usage
-Use examples liberally, and show the expected output if you can. It's helpful to have inline the smallest example of usage that you can demonstrate, while providing links to more sophisticated examples if they are too long to reasonably include in the README.
-
-## Support
-Tell people where they can go to for help. It can be any combination of an issue tracker, a chat room, an email address, etc.
-
-## Roadmap
-If you have ideas for releases in the future, it is a good idea to list them in the README.
-
-## Contributing
-State if you are open to contributions and what your requirements are for accepting them.
-
-For people who want to make changes to your project, it's helpful to have some documentation on how to get started. Perhaps there is a script that they should run or some environment variables that they need to set. Make these steps explicit. These instructions could also be useful to your future self.
-
-You can also document commands to lint the code or run tests. These steps help to ensure high code quality and reduce the likelihood that the changes inadvertently break something. Having instructions for running tests is especially helpful if it requires external setup, such as starting a Selenium server for testing in a browser.
-
-## Authors and acknowledgment
-Show your appreciation to those who have contributed to the project.
-
-## License
-For open source projects, say how it is licensed.
-
-## Project status
-If you have run out of energy or time for your project, put a note at the top of the README saying that development has slowed down or stopped completely. Someone may choose to fork your project or volunteer to step in as a maintainer or owner, allowing your project to keep going. You can also make an explicit request for maintainers.
