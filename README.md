@@ -23,8 +23,6 @@ Both repositories were created with the same name:
 - Go to **Settings → Repository → Mirroring Repositories** in GitLab.
 - Click **Add mirror**.
 - Enter GitHub repository URL with authentication:
-```
-````
 - Select **Push** direction (GitLab → GitHub).
 - Click **Save changes**.
 
