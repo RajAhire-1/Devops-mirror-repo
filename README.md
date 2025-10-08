@@ -43,6 +43,7 @@ Both repositories were created with the same name:
 - Use this token in the GitLab mirror URL for secure authentication.
 
 ---
+![](screenshots/personal_token.png)
 
 ### 4. Initial Testing
 Create `index.html` in GitLab repository:
