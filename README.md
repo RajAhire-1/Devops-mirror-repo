@@ -26,7 +26,6 @@ Both repositories were created with the same name:
 - Select **Push** direction (GitLab → GitHub).
 - Click **Save changes**.
 
-> This ensures every commit or branch update on GitLab automatically pushes to GitHub.
 
 **Screenshot placeholder:**  
 ![](screenshots/personal_access_token.png)
@@ -84,17 +83,6 @@ git push origin contact_us
 ![](screenshots/branch_contact_us.png)
 ![](screenshots/ready_to__merge.png)
 
----
-
-## Key Learnings
-
-* GitLab repository mirroring automatically syncs commits, branches, and merges.
-* GitHub Personal Access Token ensures secure, continuous synchronization.
-* No manual `git push` commands are required after setup.
-* Merge requests and branch creations are mirrored automatically.
-* Real-time synchronization between GitLab and GitHub.
-
----
 
 ## Mirroring Workflow
 
@@ -135,18 +123,6 @@ devops-mirror-repo/
     ├── successful-sync.png
     └── branch-mirroring.png
 ```
-
----
-
-## Quick Start Guide
-
-1. Create repositories on GitLab and GitHub.
-2. Generate GitHub Personal Access Token.
-3. Configure mirroring in GitLab project settings.
-4. Test initial commit and branch creation.
-5. Verify automatic synchronization on GitHub.
-
----
 
 ## Author
 
