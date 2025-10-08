@@ -6,6 +6,7 @@ This project demonstrates how to mirror a GitLab repository into GitHub — auto
 
 This repository shows a practical example of GitLab → GitHub repository mirroring.
 
+![](screenshots/overview.png)
 Both repositories were created with the same name:
 
 - GitLab Repo: [https://gitlab.com/RajAhire/devops-mirror-repo](https://gitlab.com/RajAhire/devops-mirror-repo)  
